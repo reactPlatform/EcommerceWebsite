@@ -1,0 +1,11 @@
+.cartImg{
+    width: 25px;
+}
+.cartContainer{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    margin-right: 66px;
+    margin-top: 8px;
+}

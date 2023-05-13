@@ -1,0 +1,11 @@
+.cardstyle{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3%;
+}
+.seeCart{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 3%;
+}
