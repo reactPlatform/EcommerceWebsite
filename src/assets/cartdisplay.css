@@ -1,0 +1,28 @@
+.cartspacing{
+    margin: 10px;
+}
+.cartColor{
+    background-color: palegreen;
+}
+.bt1{
+    background-color: white;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.bt2{
+    background-color: white;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.bt3{
+    background-color: white;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.bt4{
+    border-radius: 5px;
+    background-color: antiquewhite;
+}

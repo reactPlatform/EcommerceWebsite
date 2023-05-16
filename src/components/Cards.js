@@ -2,7 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const Cards = ({item}) => {
+const Cards = ({item,handleAddToCart}) => {
     const {imageUrl,title,price} = item;
 
 
@@ -15,7 +15,7 @@ const Cards = ({item}) => {
                 <Card.Text>
                 &#8377; {price}
                 </Card.Text>
-                <Button variant="primary">ADD TO CART</Button>
+                <Button variant="primary" onClick={() => handleAddToCart(item)}>ADD TO CART</Button>
             </Card.Body>
         </Card>
         

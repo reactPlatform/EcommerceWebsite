@@ -1,22 +1,20 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Cart from '../components/Cart';
+import '../assets/navbarcomponent.css';
+import Cart from './Cart';
+import { useNavigate } from 'react-router-dom';
 
-
-const NavbarComponent = () => {
+const NavbarComponent = ({itemLength}) => {
+  const navigate = useNavigate();
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Container>
-          <Nav className="me-auto">
-            <Nav.Link href="home">HOME</Nav.Link>
-            <Nav.Link href="store">STORE</Nav.Link>
-            <Nav.Link href="about">ABOUT</Nav.Link>
-            <Cart />
-          </Nav>
-      </Container>
-    </Navbar>
+    <div className='navContainer'>
+      <ul className='ulContainer'>
+        <li className='liContainer'>HOME</li>
+        <li className='liContainer' onClick={() => navigate("store")}>STORE</li>
+        <li className='liContainer'>ABOUT</li>
+        <Cart itemLength={itemLength} />
+      </ul>
+      
+    </div>
   )
 }
 

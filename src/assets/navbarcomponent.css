@@ -1,0 +1,17 @@
+.ulContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0;
+}
+.liContainer{
+    list-style-type: none;
+    cursor: pointer;
+}
+.navContainer{
+    background-color: #41464b;
+    padding: 15px;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+}
