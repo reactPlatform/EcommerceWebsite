@@ -1,0 +1,16 @@
+.homeContainer{
+    display: flex;
+flex-direction: column;
+align-items: center;
+}
+.homeBox{
+    margin: 10px;
+}
+.content{
+    border: 2px solid #20b4d1;
+    padding: 10px;
+    font-size: 20px;
+}
+.playIcon{
+    height: 50px;
+}
