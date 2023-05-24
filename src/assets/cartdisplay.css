@@ -4,25 +4,24 @@
 .cartColor{
     background-color: palegreen;
 }
-.bt1{
-    background-color: white;
+.plusIcon,.minusIcon{
+    
     margin-right: 5px;
     border-radius: 5px;
     font-weight: 600;
+    width: 10%;
+    cursor: pointer;
 }
-.bt2{
-    background-color: white;
+.itemCount{
+    
     margin-right: 5px;
-    border-radius: 5px;
     font-weight: 600;
 }
-.bt3{
-    background-color: white;
-    margin-right: 5px;
-    border-radius: 5px;
-    font-weight: 600;
-}
+
 .bt4{
     border-radius: 5px;
     background-color: antiquewhite;
+}
+.cartdesign{
+    margin-left: 0;
 }

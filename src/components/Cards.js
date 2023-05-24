@@ -1,10 +1,15 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
 
-const Cards = ({item,handleAddToCart}) => {
+const Cards = ({item}) => {
     const {imageUrl,title,price} = item;
-
+    const { addToCart } = useContext(CartContext);
+    const handleAddToCart = (newItem) => {
+        addToCart(newItem);
+    }
 
     return (
         

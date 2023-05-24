@@ -3,15 +3,15 @@ import '../assets/navbarcomponent.css';
 import Cart from './Cart';
 import { useNavigate } from 'react-router-dom';
 
-const NavbarComponent = ({itemLength}) => {
+const NavbarComponent = () => {
   const navigate = useNavigate();
   return (
     <div className='navContainer'>
       <ul className='ulContainer'>
-        <li className='liContainer'>HOME</li>
+        <li className='liContainer' onClick={() => navigate("/")}>HOME</li>
         <li className='liContainer' onClick={() => navigate("store")}>STORE</li>
-        <li className='liContainer'>ABOUT</li>
-        <Cart itemLength={itemLength} />
+        <li className='liContainer' onClick={() => navigate("about")}>ABOUT</li>
+        <Cart />
       </ul>
       
     </div>

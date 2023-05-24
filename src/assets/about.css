@@ -1,0 +1,23 @@
+.aboutContainer{
+    text-align: center;
+    font-size: 30px;
+    font-family: ui-sans-serif;
+    font-weight: 600;
+    margin: 10px;
+}
+.aboutContent{
+    font-family: serif;
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 50px 20px 50px;
+}
+.imageContainer{
+    width: 20%;
+    border-radius: 50%;
+}
+p{
+    text-align: left;
+    margin-left: 20px;
+}
