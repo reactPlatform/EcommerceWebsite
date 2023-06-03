@@ -3,9 +3,9 @@ import Cards from './Cards';
 import productsArr from '../Data';
 import '../assets/ecombody.css';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 const EcomBody = () => {
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     return (
         <>
 
@@ -18,7 +18,7 @@ const EcomBody = () => {
             }
             </div>
             <div className='seeCart'>
-            <Button variant="secondary" onClick={() => navigate("cartitems")}>See the cart</Button>
+            <Button variant="secondary" >See the cart</Button>
             </div>
         </>
     )

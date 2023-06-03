@@ -1,16 +1,17 @@
 import React from 'react'
 import '../assets/navbarcomponent.css';
 import Cart from './Cart';
-import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavbarComponent = () => {
-  const navigate = useNavigate();
+  
   return (
     <div className='navContainer'>
       <ul className='ulContainer'>
-        <li className='liContainer' onClick={() => navigate("/")}>HOME</li>
-        <li className='liContainer' onClick={() => navigate("store")}>STORE</li>
-        <li className='liContainer' onClick={() => navigate("about")}>ABOUT</li>
+        <li className='liContainer' > <NavLink to='/home' >HOME</NavLink></li>
+        <li className='liContainer' > <NavLink to='/store' >STORE</NavLink></li>
+        <li className='liContainer' ><NavLink to='/about' >ABOUT</NavLink></li>
+        <li className='liContainer' ><NavLink to='/contact' >CONTACT US</NavLink></li>
         <Cart />
       </ul>
       

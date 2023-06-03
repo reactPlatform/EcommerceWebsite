@@ -8,6 +8,10 @@
     list-style-type: none;
     cursor: pointer;
 }
+.liContainer a{
+    color: white;
+    text-decoration: none;
+}
 .navContainer{
     background-color: #41464b;
     padding: 15px;
