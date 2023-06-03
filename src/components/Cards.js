@@ -3,16 +3,20 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Cards = ({item}) => {
-    const {imageUrl,title,price} = item;
+    const {imageUrl,title,price,id} = item;
     const { addToCart } = useContext(CartContext);
     const handleAddToCart = (newItem) => {
         addToCart(newItem);
     }
 
     return (
-        
+        <Link to={{
+            pathname: `/store/${id}`,
+            state: { item }
+          }}>
         <Card style={{ width: '17rem' }}>
             <Card.Img variant="top" src={imageUrl} className='img-fluid'/>   
             <Card.Body>
@@ -22,7 +26,7 @@ const Cards = ({item}) => {
                 </Card.Text>
                 <Button variant="primary" onClick={() => handleAddToCart(item)}>ADD TO CART</Button>
             </Card.Body>
-        </Card>
+        </Card></Link>
         
     )
 }
