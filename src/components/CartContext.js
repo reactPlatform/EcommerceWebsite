@@ -35,13 +35,14 @@ export const CartProvider = ({ children }) => {
         cartItems.forEach(x => total=total+(x.price*x.itemCount))
         setTotalAmount(total);
       }
-      //updateTotalAmount();
+      
     const cart = {
         cartItems,
         addToCart,
         removeFromCart,
         updateItemQuantity,
         decreaseItemQuantity,
+        updateTotalAmount,
         totalAmount
     };
     return (

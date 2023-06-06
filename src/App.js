@@ -12,22 +12,16 @@ import ContactUS from './components/ContactUS';
 import ProductDetail from './components/ProductDetail';
 import { Switch, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import Login from './components/Authentication/Login';
-import AuthContext from './components/Authentication/auth-context';
+
 function App() {
-  const authCtx = useContext(AuthContext);
-  
-  
- 
   return (
+   
     <CartProvider>
       <NavbarComponent />
       
         <Switch>
-       <Route path="/home">
-        {authCtx.isLoggedIn && <Home />}
-        {!authCtx.isLoggedIn && <Redirect to='/login' />}
-        </Route>
-       <Route path='/about'><About /></Route>
+       <Route path="/home"><Home /></Route>
+       <Route path='/about'><About /></Route> 
        <Route path="/store" exact ><EcomBody /></Route> 
        <Route path="/contact" ><ContactUS /></Route> 
        <Route path="/cartitems"><CartItems /></Route>

@@ -1,28 +1,23 @@
 import React from 'react'
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useState } from 'react'
 import {auth} from './Firebase';
-import SignUp from './SignUp';
-import AuthDetails from './AuthDetails';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-const Login = () => {
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+const SignUp = () => {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
-  const history = useHistory();
-  const signIn = (event) => {
+  const signUp = (event) => {
     event.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
      .then((userCredential) => {
       console.log(userCredential);
-      history.replace('/store');
     }).catch((error) => {
       console.log(error);
     })
   }
   return (
     <div>
-      <form onSubmit={signIn}>
-        <h2>Login to your Account</h2>
+      <form onSubmit={signUp}>
+        <h2>Create Account</h2>
         <input type='email' 
         placeholder='Enter your email' 
         value={email}
@@ -33,12 +28,10 @@ const Login = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <button type='submit'>Login</button>
+        <button type='submit'>Sign up</button>
       </form>
-      <SignUp />
-      <AuthDetails />
     </div>
   )
 }
 
-export default Login
+export default SignUp

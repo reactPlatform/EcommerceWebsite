@@ -13,10 +13,10 @@ const Cards = ({item}) => {
     }
 
     return (
-        <Link to={`/productDetails/${item.id}`}
-            >
+        
         <Card style={{ width: '17rem' }}>
-            <Card.Img variant="top" src={imageUrl} className='img-fluid'/>   
+            <Link to={`/productDetails/${item.id}`} >
+            <Card.Img variant="top" src={imageUrl} className='img-fluid'/></Link>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
@@ -24,7 +24,7 @@ const Cards = ({item}) => {
                 </Card.Text>
                 <Button variant="primary" onClick={() => handleAddToCart(item)}>ADD TO CART</Button>
             </Card.Body>
-        </Card></Link>
+        </Card>
         
     )
 }

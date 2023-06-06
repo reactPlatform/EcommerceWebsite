@@ -4,8 +4,8 @@ import '../assets/cart.css';
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
 const CartItems = () => {
-  const {cartItems,totalAmount} = useContext(CartContext);
-  
+  const {cartItems,totalAmount, updateTotalAmount} = useContext(CartContext);
+  updateTotalAmount();
   return (
     <div className='CartItemsDisplay'>
       {
