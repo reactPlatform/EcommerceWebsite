@@ -1,20 +1,23 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import {auth} from './Firebase';
 import SignUp from './SignUp';
 import AuthDetails from './AuthDetails';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { CartContext } from '../CartContext';
 const Login = () => {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const history = useHistory();
+  const {currentUserHandler} = useContext(CartContext);
   const signIn = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
      .then((userCredential) => {
       console.log(userCredential);
       history.replace('/store');
+      currentUserHandler(userCredential._tokenResponse.email);
     }).catch((error) => {
       console.log(error);
     })
