@@ -12,6 +12,7 @@ const NavbarComponent = () => {
         <li className='liContainer' > <NavLink to='/store' >STORE</NavLink></li>
         <li className='liContainer' ><NavLink to='/about' >ABOUT</NavLink></li>
         <li className='liContainer' ><NavLink to='/contact' >CONTACT US</NavLink></li>
+        <li className='liContainer' ><NavLink to='/login' >LOGIN</NavLink></li>
         <Cart />
       </ul>
       

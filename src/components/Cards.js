@@ -13,10 +13,8 @@ const Cards = ({item}) => {
     }
 
     return (
-        <Link to={{
-            pathname: `/store/${id}`,
-            state: { item }
-          }}>
+        <Link to={`/productDetails/${item.id}`}
+            >
         <Card style={{ width: '17rem' }}>
             <Card.Img variant="top" src={imageUrl} className='img-fluid'/>   
             <Card.Body>

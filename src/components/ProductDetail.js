@@ -1,15 +1,16 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import productsArr from '../Data';
 const ProductDetail = () => {
-    const location  = useLocation();
-    const item = location.state;
-   
-    console.log(item.id)
+    const params = useParams();
+    const item = productsArr.find((x) => x.id === Number(params.productId))
+    
+    console.log(productsArr)
     
   return (
     <div>ProductDetail
-        <p>{item.id}</p>
+        <p>{item.title}</p>
+        <p>{item.desc}</p>
     </div>
   )
 }
