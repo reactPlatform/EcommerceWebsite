@@ -1,23 +1,18 @@
-import { createContext, useState, useEffect } from "react";
+import { func } from "prop-types";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [currentUser,setCurrentUser] = useState('');
     const [totalAmount,setTotalAmount] = useState(0);
-    const baseUrl = 'https://crudcrud.com/api/e05e892a926b488b9e7ab9800e54228f';
+    const baseUrl = 'https://crudcrud.com/api/4412dda31fd245a6afd08eae0fe96239';
     const addToCart = (item) => {
-        let canAddItem = true;
-        for (let cartItem of cartItems) {
-            if (item.id === cartItem.id) {
-                canAddItem = false;
-            }
-        }
-        if (canAddItem) {
-            setCartItems([...cartItems, item]);
-        }
-        updateCartInApi();
-    };
+        setTimeout(() => {
+            const items = [item]
+            updateCartInApi(items); 
+          }, 3000);
+      };
     const removeFromCart = (itemId) => {
         setCartItems(cartItems.filter((item) => item.id !== itemId));
     };
@@ -35,20 +30,24 @@ export const CartProvider = ({ children }) => {
     }
     const updateTotalAmount = () => {
         let total = 0;
-        cartItems.forEach(x => total=total+(x.price*x.itemCount))
+        if(cartItems){
+            cartItems.forEach(x => total=total+(x.price*x.itemCount))
+        }
+        
         setTotalAmount(total);
       }
 
     const currentUserHandler = (email) => {
         setCurrentUser(email);
+        
     }
 
-    const updateCartInApi = () => {
+    async function updateCartInApi(items){
         const cartData = {
-            cartItems,
+            cartItems: items,
             Email:currentUser
         }
-        fetch(`${baseUrl}/cart${currentUser.replace('@','').replace('.','')}`, {
+        await fetch(`${baseUrl}/cart${currentUser.replace('@','').replace('.','')}`, {
             method: 'POST',
             headers: {
                 Accept: 'application.json',
@@ -61,20 +60,21 @@ export const CartProvider = ({ children }) => {
         })
     }
 
-    const getCartFromApi = () => {
+    async function getCartFromApi(){
         if(!currentUser) return;
         fetch(`${baseUrl}/cart${currentUser.replace('@','').replace('.','')}`)
         .then((res) => {
            return res.json();
         }).then((res)=> {
             if(!res) return;
-            const items = res.find(x => x.cartItems.length > 0);
-            setCartItems(items);
+            const items = res.find(x => x.cartItems && x.cartItems.length > 0);
+            setCartItems(items ? items : []);
+            return false
         })
     }
 
     
-        getCartFromApi();
+        
   
       
     const cart = {
@@ -85,7 +85,9 @@ export const CartProvider = ({ children }) => {
         decreaseItemQuantity,
         updateTotalAmount,
         currentUserHandler,
-        totalAmount
+        totalAmount,
+        currentUser,
+        getCartFromApi
     };
     return (
         <CartContext.Provider value={cart}>

@@ -8,9 +8,10 @@ const ProductDetail = () => {
     console.log(productsArr)
     
   return (
-    <div>ProductDetail
-        <p>{item.title}</p>
-        <p>{item.desc}</p>
+    <div>Product Detail
+      <br />
+        <div>{item.title}</div>
+        <div>{item.desc}</div>
     </div>
   )
 }

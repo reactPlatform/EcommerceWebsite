@@ -2,13 +2,16 @@ import React from 'react'
 import Cards from './Cards';
 import productsArr from '../Data';
 import '../assets/ecombody.css';
-import Button from 'react-bootstrap/Button';
-//import { useNavigate } from 'react-router-dom';
+import Login from './Authentication/Login';
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
 const EcomBody = () => {
-    //const navigate = useNavigate();
+    const {currentUser} = useContext(CartContext);
     return (
         <>
-
+        {
+            !currentUser ? <Login /> : (
+                <>
             <div className='text-bg-secondary p-3 text-center'>
                 <h1>The Generics</h1>
             </div>
@@ -17,9 +20,9 @@ const EcomBody = () => {
                 productsArr.map((item) => <Cards item={item} key={item.id} />)
             }
             </div>
-            <div className='seeCart'>
-            <Button variant="secondary" >See the cart</Button>
-            </div>
+            </>
+            ) 
+        }    
         </>
     )
 }

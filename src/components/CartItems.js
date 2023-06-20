@@ -1,18 +1,26 @@
 import React from 'react'
 import CartDisplay from './CartDisplay';
+import { useState, useEffect } from 'react';
 import '../assets/cart.css';
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
 const CartItems = () => {
-  const {cartItems,totalAmount, updateTotalAmount} = useContext(CartContext);
-  updateTotalAmount();
+  const {totalAmount, updateTotalAmount, getCartFromApi,cartItems} = useContext(CartContext);
+  
+  useEffect(()=>{
+    fetchItems();
+    
+  },[])
+  async function fetchItems(){
+    const data = await getCartFromApi();
+    
+  }
   return (
     <div className='CartItemsDisplay'>
       {
-        cartItems.length === 0 ? <img src='https://assets.materialup.com/uploads/16e7d0ed-140b-4f86-9b7e-d9d1c04edb2b/preview.png' alt='emptyCart' width='50%' /> : 
         <div>
           {
-            cartItems.map((item)=><CartDisplay item={item} key={item.id}/>)
+             cartItems && cartItems.map((item)=><CartDisplay item={item} key={item.id}/>)
           }
           <p>Total Price: 
             {

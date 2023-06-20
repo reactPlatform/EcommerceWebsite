@@ -12,6 +12,7 @@ const Login = () => {
   const history = useHistory();
   const {currentUserHandler} = useContext(CartContext);
   const signIn = (event) => {
+    debugger
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
      .then((userCredential) => {

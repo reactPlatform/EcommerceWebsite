@@ -2,8 +2,11 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import {auth} from './Firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { useContext } from 'react';
+import {CartContext} from '../CartContext';
 const AuthDetails = () => {
     const [authUser, setAuthUser] = useState(null);
+    const {currentUserHandler} = useContext(CartContext);
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
             if(user){
@@ -19,6 +22,7 @@ const AuthDetails = () => {
     
     const userSignOut = () => {
         signOut(auth).then(() => {
+            currentUserHandler('');
             console.log('Sign out successful')
         }).catch(error => console.log(error))
     }

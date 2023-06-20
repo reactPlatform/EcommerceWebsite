@@ -2,7 +2,7 @@ import './App.css';
 import EcomBody from './components/EcomBody';
 import NavbarComponent from './components/NavbarComponent';
 import Footer from './components/Footer';
-import { useState , useEffect, useContext } from 'react';
+//import { useState , useEffect, useContext } from 'react';
 import { Route } from 'react-router-dom';
 import CartItems from './components/CartItems';
 import { CartProvider } from './components/CartContext';
@@ -10,7 +10,7 @@ import Home from './components/Home';
 import About from './components/About';
 import ContactUS from './components/ContactUS';
 import ProductDetail from './components/ProductDetail';
-import { Switch, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import Login from './components/Authentication/Login';
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
       <NavbarComponent />
       
         <Switch>
+       <Route path='/' exact><Home /></Route>
        <Route path="/home"><Home /></Route>
        <Route path='/about'><About /></Route> 
        <Route path="/store" exact ><EcomBody /></Route> 

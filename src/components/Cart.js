@@ -13,7 +13,7 @@ const Cart = () => {
     <div className='cartContainer'>
         
         <NavLink to='/cartitems'><img src={cartImg} alt='cartImg' className='cartImg'/></NavLink>
-        <span className='cartCount'>{cartItems.length}</span>
+        <span className='cartCount'>{cartItems ? cartItems.length : 0}</span>
         
     </div>
     

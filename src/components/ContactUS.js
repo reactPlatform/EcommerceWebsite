@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import '../assets/contact.css';
 const ContactUS = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -31,7 +31,7 @@ const ContactUS = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='contactContainer'>
       <div>
         <label>Name:</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
